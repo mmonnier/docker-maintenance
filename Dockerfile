@@ -11,9 +11,6 @@ COPY maintenance.html /srv/www
 COPY logo.png /srv/www
 COPY favicon.ico /srv/www
 
-RUN touch /run/nginx.pid
-RUN chown -R 1001:1001 /var/log/nginx /run/nginx /var/lib/nginx /run/nginx.pid /etc/nginx
-
-USER 1001
+USER 0
 
 CMD [ "/usr/sbin/nginx", "-c", "/etc/nginx/conf.d/nginx_maintenance.conf" ]
